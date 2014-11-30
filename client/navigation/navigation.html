@@ -23,6 +23,13 @@
                         <li>
                             <a href="#">Lista zadan</a>
                         </li>
+
+                        {{#if isInRole "admin"}}
+                        <li>
+                            <a href="#">Lista zadan</a>
+                        </li>
+                        {{/if}}
+
                         <li>
                             <a href="#" class="logout">Wyloguj</a>
                         </li>
@@ -36,3 +43,10 @@
 </div>
 
 </template>
+
+<template name="featureComparison">
+  <div id="table">
+    {{> reactiveTable collection=tables settings=tableSettings}}
+  </div>
+</template>
+

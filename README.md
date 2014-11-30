@@ -1,4 +1,0 @@
-Rechunex
-========
-
-Rechunex App

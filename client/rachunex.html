@@ -2,10 +2,13 @@
 <title>rachunex</title>
 </head>
 <body>
+
 {{#if currentUser}}
-	{{>navigation}}
+	{{> navigation}}
+	{{> featureComparison}}
 {{else}}
-	<!-- {{> login}} -->
-	{{> register}}
+	{{> login}}
+	<!-- {{> register}} dodaje uzytkownikow -->
 {{/if}}
+ 
 </body>
