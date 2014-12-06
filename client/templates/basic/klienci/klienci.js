@@ -1,6 +1,17 @@
-Tables = new Meteor.Collection('klienci');
-
+Tables = new Meteor.Collection('tables');
 if(Meteor.isClient){
+
+
+  Template.klienci.events({
+  'click .reactive-table tr': function (event) {
+    event.preventDefault();
+    var tables = this;
+    // checks if the actual clicked element has the class `delete`
+    var accept = confirm("Czy na pewno usunąć?");
+    if (accept == true)
+      Tables.remove(tables._id)
+  }
+});
 
   var checkOrX = function (value) {
     var html;
@@ -25,7 +36,7 @@ if(Meteor.isClient){
     return new Spacebars.SafeString(html);
   };
 
-  Template.featureComparison.helpers({
+  Template.klienci.helpers({
     tables : function () {
       return Tables;
     },
@@ -64,12 +75,4 @@ if(Meteor.isClient){
       };
     }
   });
-
-Template.navigation.events({
-    'click .logout': function(event){
-        event.preventDefault();
-        Meteor.logout();
-    }
-});
-
 }
