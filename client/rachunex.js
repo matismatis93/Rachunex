@@ -10,5 +10,7 @@ Deps.autorun(function () {
 
   // users, for manage-users page
   Meteor.subscribe('users');
+
+  Meteor.subscribe('zadania');
 });
 }
