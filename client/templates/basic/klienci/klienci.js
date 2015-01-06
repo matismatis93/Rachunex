@@ -1,17 +1,30 @@
 Tables = new Meteor.Collection('tables');
+
 if(Meteor.isClient){
 
-
   Template.klienci.events({
-  'click .reactive-table tr': function (event) {
+  'dblclick .reactive-table tr': function (event) {
     event.preventDefault();
-    var tables = this;
-    // checks if the actual clicked element has the class `delete`
-    var accept = confirm("Czy na pewno usunąć?");
-    if (accept == true)
-      Tables.remove(tables._id)
+    var clientId = this._id;
+    var showForm = true;
+    Session.set('selectedClient', clientId);
+    Session.set('editClientForm', showForm);
+  },
+  'submit form': function(event) {
+    event.preventDefault();
+    var clientNazwaVar = event.target.klNazwa.value;
+    var clientAdresVar = event.target.klAdres.value;
+    var clientNIPVar = event.target.klNIP.value;
+    var noweDaneKlienta = {nazwa: clientNazwaVar, adres: clientAdresVar, NIP: clientNIPVar};
+    Tables.update({_id: Session.get('selectedClient')}, noweDaneKlienta);
+    var showForm = false;
+    Session.set('editClientForm', showForm);
+  },
+  'click .anuluj': function() {
+    var showForm = false;
+    Session.set('editClientForm', showForm);
   }
-});
+  });
 
   var checkOrX = function (value) {
     var html;
@@ -57,14 +70,14 @@ if(Meteor.isClient){
           },
           {
             key: 'adres',
-            label: 'adres',
+            label: 'Adres',
             fn: function (name, object) {
               var html = '<a name="' + name +'" target="_blank" href="' + object.url + '">' + name + '</a>';
               return new Spacebars.SafeString(html);
             }
           },
           {
-            key: 'NiP',
+            key: 'NIP',
             label: 'NIP',
             fn: function (name, object) {
               var html = '<a name="' + name +'" target="_blank" href="' + object.url + '">' + name + '</a>';
@@ -73,6 +86,14 @@ if(Meteor.isClient){
           },
         ]
       };
+    },
+    showSelectedClient: function() {
+      var selectedClient = Session.get('selectedClient');
+      return Tables.findOne(selectedClient);
+    },
+    showForm: function() {
+      var showForm = Session.get('editClientForm');
+      return showForm;
     }
   });
 }

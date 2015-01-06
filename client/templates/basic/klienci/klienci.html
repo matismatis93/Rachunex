@@ -1,5 +1,18 @@
 <template name="klienci">
 <div class="container">
+	
+		{{#if showForm}}
+		<p>Formularz zmiany danych klienta:</p>
+		<form>
+		<input type="text" name="klNazwa" value="{{showSelectedClient.nazwa}}">
+		<input type="text" name="klAdres" value="{{showSelectedClient.adres}}">
+		<input type="text" name="klNIP" value="{{showSelectedClient.NIP}}">
+		<input type="submit" value="Zatwierdź zmiany">
+		<input type="button" class="anuluj" value="Anuluj">
+		</form>
+		{{/if}}
+	
+	<p></p>
    <div id="table">
     {{> reactiveTable collection=tables settings=tableSettings}}
   </div>
