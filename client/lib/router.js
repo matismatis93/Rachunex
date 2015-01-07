@@ -68,6 +68,17 @@ Router.map(function () {
 	}
   });
 
+    this.route('dodajZadanie', {
+    path: '/dodajzadanie',
+    action: function(){
+    var user = Meteor.userId();
+  if (Roles.userIsInRole(user, ["admin"]))
+    this.render('dodajZadanie');
+  else
+    this.render('invalid-access');
+  }
+  });
+
 
   this.route('*', {
     template: 'not_found'

@@ -1,0 +1,50 @@
+<template name="dodajZadanie">
+<div class="container">
+ <div class="span12">
+	<form class="form-inline" role="form">
+  <div class="form-group">
+    <div class="input-group">
+      <select class="selectpicker" id="zNazwa">
+        {{#each listaKlientow}}
+            {{> opcja}}
+        {{/each}}
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+        <select class="selectpicker" id="zZadanie">
+          <option>K. sprzedaż</option>
+          <option>K. zakup</option>
+          <option>K. amortyzacja</option>
+          <option>K. prowizje bankowe</option>
+          <option>K. ZUS właściciela</option>
+          <option>D. VAT-7 mies.</option>
+          <option>D. VAT-7 wys.</option>
+          <option>D. ZUS 10</option>
+          <option>D. PIT-5 ZUS</option>
+          <option>D. PIT-5 mies</option>
+      </select>
+  </div>
+  <br>
+  <div class="form-group">
+    <input type="text" id="zZaokres" placeholder="Za okres" class="datepicker" data-date-format="mm/yyyy">
+  </div>
+  <br>
+  <div class="form-group">
+    <input type="text" id="zRealizacja" placeholder="Realizacja do" class="datepicker" data-date-format="dd/mm/yyyy">
+  </div>
+  <br>
+  <div class="form-group">
+    <input type="text" class="form-control" id="zKomenatarz" placeholder="Komentarz">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-default">Dodaj zadanie</button>
+</form>
+ </div>
+</div>
+</template>
+
+<template name="opcja">
+   <option>{{nazwa}}</option>
+</template>

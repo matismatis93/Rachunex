@@ -5,13 +5,33 @@ Template.register.events({
     event.preventDefault();
     var nazwaVar = template.find('#register-nazwa').value;
     var emailVar = template.find('#register-email').value;
+    var roleVar = template.find('#register-role').value;
     var passwordVar = template.find('#register-password').value;
-    id = Accounts.createUser({
-    	nazwa: nazwaVar,
-        email: emailVar,
+    
+    var users =[{name:nazwaVar,email:emailVar,roles:[roleVar]}];
+
+
+
+    _.each(users, function (userData) {
+      var id,
+          user;
+      
+      console.log(userData);
+
+      id = Accounts.createUser({
+        email: userData.email,
         password: passwordVar,
+        profile: { name: userData.name }
+      });
+
+      // email verification
+      Meteor.users.update({_id: id}, {$set:{'emails.0.verified': true}});
+
+      Roles.addUsersToRoles(id, userData.roles);
+    
     });
   }
 });
 
 }
+

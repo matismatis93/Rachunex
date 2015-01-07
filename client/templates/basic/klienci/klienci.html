@@ -4,22 +4,11 @@
 		{{#if showForm}}
 		<p>Formularz zmiany danych klienta:</p>
 		<form>
-			<div class="flex-container">
-				<div class="flex-item">
-					<label for="klNazwa">Nazwa klienta</label>
-					<input type="text" name="klNazwa" value="{{showSelectedClient.nazwa}}">
-				</div>
-				<div class="flex-item">
-					<label for="klAdres">Adres</label>
-					<input type="text" name="klAdres" value="{{showSelectedClient.adres}}">
-				</div>
-				<div class="flex-item">
-					<label for="klNIP">NIP</label>
-					<input type="text" name="klNIP" value="{{showSelectedClient.NIP}}">
-				</div>
-			</div>
-			<input type="submit" value="Zatwierdź zmiany">
-			<input type="button" class="anuluj" value="Anuluj">
+		<input type="text" name="klNazwa" value="{{showSelectedClient.nazwa}}">
+		<input type="text" name="klAdres" value="{{showSelectedClient.adres}}">
+		<input type="text" name="klNIP" value="{{showSelectedClient.NIP}}">
+		<input type="submit" value="Zatwierdź zmiany">
+		<input type="button" class="anuluj" value="Anuluj">
 		</form>
 		{{/if}}
 	
