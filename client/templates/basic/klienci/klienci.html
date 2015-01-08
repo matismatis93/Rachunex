@@ -4,9 +4,11 @@
 		{{#if showForm}}
 		<p>Formularz zmiany danych klienta:</p>
 		<form>
+		<div class="flex-container">
 		<input type="text" name="klNazwa" value="{{showSelectedClient.nazwa}}">
 		<input type="text" name="klAdres" value="{{showSelectedClient.adres}}">
 		<input type="text" name="klNIP" value="{{showSelectedClient.NIP}}">
+		</div>
 		<input type="submit" value="Zatwierdź zmiany">
 		<input type="button" class="anuluj" value="Anuluj">
 		</form>
