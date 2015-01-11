@@ -8,7 +8,6 @@ Router.onBeforeAction(function() {
 
 Router.configure({
   layoutTemplate: 'layout'
-
 });
 
 Router.map(function () {
@@ -40,8 +39,15 @@ Router.map(function () {
 	}
   });
 
-    this.route('MojeZadania', {
-  	path: '/zadania'
+    this.route('klientZadania', {
+  	path: '/zadania',
+    action: function(){
+    var user = Meteor.userId();
+  if (Roles.userIsInRole(user, ["user"]))
+    this.render('klientZadania');
+  else
+    this.render('invalid-access');
+  }
   });
 
 
@@ -72,7 +78,7 @@ Router.map(function () {
     path: '/dodajzadanie',
     action: function(){
     var user = Meteor.userId();
-  if (Roles.userIsInRole(user, ["admin"]))
+  if (Roles.userIsInRole(user, ["admin", "management"]))
     this.render('dodajZadanie');
   else
     this.render('invalid-access');

@@ -2,6 +2,12 @@ TaskList = new Mongo.Collection('zadania');
 
 if(Meteor.isClient) {
 
+  Template.ListaZadan.rendered = function() {
+  this.$('.datepicker').datepicker();
+  $('.selectpicker').selectpicker();
+
+}
+
 Template.ListaZadan.helpers({
 	
 	zadania : function() {
@@ -10,7 +16,7 @@ Template.ListaZadan.helpers({
 
 	zadaniaSettings : function () {
       return {
-        rowsPerPage: 5,
+        rowsPerPage: 7,
         showNavigation: 'auto',
         showColumnToggles: true,
         fields: [
@@ -38,7 +44,7 @@ Template.ListaZadan.helpers({
 });
 
 Template.ListaZadan.events({
-    'dblclick .reactive-table tr': function(event) {
+    'dblclick .reactive-table tbody tr': function(event) {
     event.preventDefault();
     var taskId = this._id;
     var showForm = true;

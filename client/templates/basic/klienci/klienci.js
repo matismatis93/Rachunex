@@ -3,7 +3,7 @@ Tables = new Meteor.Collection('tables');
 if(Meteor.isClient){
 
   Template.klienci.events({
-  'dblclick .reactive-table tbody tr': function (event) {
+  'click .reactive-table tbody tr': function (event) {
     event.preventDefault();
     var clientId = this._id;
     var showForm = true;

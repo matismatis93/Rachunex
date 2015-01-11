@@ -34,10 +34,4 @@ Template.dodajZadanie.events({
 }
 });
 
-Template.dodajZadanie.events({
-  'change #state': function(e) {
-    var student = $("#state").val();
-    console.log(student);
-  }
-});
 }

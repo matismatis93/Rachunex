@@ -10,7 +10,7 @@ Template.register.events({
     
     var users =[{name:nazwaVar,email:emailVar,roles:[roleVar]}];
 
-
+    console.log(users);
 
     _.each(users, function (userData) {
       var id,
@@ -18,16 +18,18 @@ Template.register.events({
       
       console.log(userData);
 
-      id = Accounts.createUser({
+        Accounts.createUser({
         email: userData.email,
         password: passwordVar,
-        profile: { name: userData.name }
+        profile: { name: userData.name },
+        // Roles.addUsersToRoles(id, userData.roles);
       });
+      // console.log(id);
 
-      // email verification
-      Meteor.users.update({_id: id}, {$set:{'emails.0.verified': true}});
+      // // email verification
+      // Meteor.users.update({_id: id}, {$set:{'emails.0.verified': true}});
 
-      Roles.addUsersToRoles(id, userData.roles);
+      // Roles.addUsersToRoles(id, userData.roles);
     
     });
   }

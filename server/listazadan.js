@@ -24,8 +24,7 @@ if (Meteor.isServer) {
 
 	Meteor.publish("zadania", function () {
   	var user = Meteor.users.findOne({_id:this.userId});
-
-  	if (Roles.userIsInRole(user, ["admin","management"])) {
+  	if (Roles.userIsInRole(user, ["admin","management", "user"])) {
     console.log('Udostepniono uzytkownikowi', this.userId);
     return TaskList.find();
   	}

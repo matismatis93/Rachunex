@@ -14,23 +14,30 @@
 			</div>
 			<div class="flex-item">
 				<label for="zOkres">Okres</label>
-				<input type="text" name="zOkres" value="{{showSelectedTask.okres}}">
+				<input type="text" name="zOkres" value="{{showSelectedTask.okres}}" class="datepicker" data-date-format="mm/yyyy">
+				<!-- <input type="text" name="zOkres" value="{{showSelectedTask.okres}}"> -->
 			</div>
 			<div class="flex-item">
 				<label for="zDataDo">Termin</label>
-				<input type="text" name="zDataDo" value="{{showSelectedTask.data_do}}">
+				<input type="text" name="zDataDo" value="{{showSelectedTask.data_do}}" class="datepicker" data-date-format="dd/mm/yyyy">
+<!-- 				<input type="text" name="zDataDo" value="{{showSelectedTask.data_do}}"> -->
 			</div>
 			<div class="flex-item">
 				<label for="zDataZak">Zrealizowane dnia:</label>
-				<input type="text" name="zDataZak" value="{{showSelectedTask.data_zak}}">
+				<input type="text" name="zDataZak" value="{{showSelectedTask.data_zak}}" class="datepicker" data-date-format="dd/mm/yyyy">
 			</div>
 			<div class="flex-item">
 				<label for="zStatus">Status</label>
-				<input type="text" name="zStatus" value="{{showSelectedTask.status}}">
+        			<select class="selectpicker" name="zStatus">
+			          <option>W toku</option>
+			          <option>Wstrzymany</option>
+			          <option>Zakończony</option>
+			      	</select>
+<!-- 				<input type="text" name="zStatus" value="{{showSelectedTask.status}}"> -->
 			</div>
 			<div class="flex-item">
 				<label for="zKomentarz">Komentarz</label>
-				<input type="text" size=120 name="zKomentarz" value="{{showSelectedTask.komentarz}}">
+				<input type="text" class="input-xxlarge" name="zKomentarz" value="{{showSelectedTask.komentarz}}">
 			</div>
 		</div>
 			<input type="submit" value="Zatwierdź zmiany">
