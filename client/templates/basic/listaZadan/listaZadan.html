@@ -3,20 +3,36 @@
 		{{#if showForm}}
 		<p>Formularz edycji wybranego zadania:</p>
 		<form>
-			<label for="zKlient">Klient</label>
-			<input type="text" size=10 name="zKlient" value="{{showSelectedTask.klient}}">
-			<label for="zZadanie">Zadanie</label>
-			<input type="text" name="zZadanie" value="{{showSelectedTask.zadanie}}">
-			<label for="zOkres">Okres</label>
-			<input type="text" name="zOkres" value="{{showSelectedTask.okres}}">
-			<label for="zDataDo">Termin</label>
-			<input type="text" name="zDataDo" value="{{showSelectedTask.data_do}}">
-			<label for="zDataZak">Zrealizowane dnia:</label>
-			<input type="text" name="zDataZak" value="{{showSelectedTask.data_zak}}">
-			<label for="zStatus">Status</label>
-			<input type="text" name="zStatus" value="{{showSelectedTask.status}}">
-			<label for="zKomentarz">Komentarz</label>
-			<input type="text" size=120 name="zKomentarz" value="{{showSelectedTask.komentarz}}">
+		<div class="flex-container">
+			<div class="flex-item">
+				<label for="zKlient">Klient</label>
+				<input type="text" size=10 name="zKlient" value="{{showSelectedTask.klient}}">
+			</div>
+			<div class="flex-item">
+				<label for="zZadanie">Zadanie</label>
+				<input type="text" name="zZadanie" value="{{showSelectedTask.zadanie}}">
+			</div>
+			<div class="flex-item">
+				<label for="zOkres">Okres</label>
+				<input type="text" name="zOkres" value="{{showSelectedTask.okres}}">
+			</div>
+			<div class="flex-item">
+				<label for="zDataDo">Termin</label>
+				<input type="text" name="zDataDo" value="{{showSelectedTask.data_do}}">
+			</div>
+			<div class="flex-item">
+				<label for="zDataZak">Zrealizowane dnia:</label>
+				<input type="text" name="zDataZak" value="{{showSelectedTask.data_zak}}">
+			</div>
+			<div class="flex-item">	
+				<label for="zStatus">Status</label>
+				<input type="text" name="zStatus" value="{{showSelectedTask.status}}">
+			</div>
+			<div class="flex-item">
+				<label for="zKomentarz">Komentarz</label>
+				<input type="text" size=120 name="zKomentarz" value="{{showSelectedTask.komentarz}}">
+			</div>
+			</div>
 			<input type="submit" value="Zatwierdź zmiany">
 			<input type="button" class="anuluj" value="Anuluj">
 		</form>
