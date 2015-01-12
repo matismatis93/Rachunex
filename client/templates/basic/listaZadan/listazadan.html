@@ -10,7 +10,31 @@
 			</div>
 			<div class="flex-item">
 				<label for="zZadanie">Zadanie</label>
-				<input type="text" name="zZadanie" value="{{showSelectedTask.zadanie}}">
+					<select class="selectpicker" name="zZadanie">
+						<option>{{showSelectedTask.zadanie}}</option>
+						<option>K. przedaż</option>
+						<option>K. zakup</option>
+						<option>K. kilometrówka</option>
+						<option>K. amortyzacja</option>
+						<option>K. prowizje bankowe</option>
+						<option>K. odsetki k/p</option>
+						<option>K. delegacje</option>
+						<option>K. ZUS płatnika</option>
+						<option>K. ZUS właściciela</option>
+						<option>K. lista płac</option>
+						<option>K. cyw-prawn.</option>
+						<option>D. VAT-7 mies.</option>
+						<option>D. VAT-7 kw.</option>
+						<option>D. VAT wys. elektr.</option>
+						<option>D. ZUS 10</option>
+						<option>D. ZUS 15</option>
+						<option>D. PIT-5 ZUS</option>
+						<option>D. PIT-5 mies.</option>
+						<option>D. PIT-5 kw.</option>
+						<option>D. PIT-4</option>
+						<option>I. OT/LT</option>
+					</select>
+<!--				<input type="text" name="zZadanie" value="{{showSelectedTask.zadanie}}"> -->
 			</div>
 			<div class="flex-item">
 				<label for="zOkres">Okres</label>
@@ -29,6 +53,7 @@
 			<div class="flex-item">
 				<label for="zStatus">Status</label>
         			<select class="selectpicker" name="zStatus">
+        			  <option>{{showSelectedTask.status}}</option>
 			          <option>W toku</option>
 			          <option>Wstrzymany</option>
 			          <option>Zakończony</option>
@@ -42,10 +67,10 @@
 		</div>
 			<input type="submit" value="Zatwierdź zmiany">
 			<input type="button" class="anuluj" value="Anuluj">
+			<input type="button" class="remove" value="Usuń zadanie">
 		</form>
 		{{/if}}
-		<p></p>
-      	<div id="table">
+		<div id="table">
 		{{> reactiveTable collection=zadania settings=zadaniaSettings}}
 		</div>
 	</div>

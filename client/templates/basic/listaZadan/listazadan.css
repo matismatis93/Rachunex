@@ -3,10 +3,14 @@
 	display: flex;
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
-	background-color: Silver;
+	background-color: #CCFF99;
 	width: 100%;
 }
 
 .flex-item {
-	margin: 5px;
+	/*margin: 5px;*/
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top: 1px;
+	margin-bottom: 1px;
 }

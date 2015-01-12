@@ -68,6 +68,13 @@ Template.ListaZadan.events({
   'click .anuluj': function() {
     var showForm = false;
     Session.set('editTaskForm', showForm);
+  },
+  'click .remove': function(event) {
+    event.preventDefault();
+    var selectedTask = Session.get('selectedTask');
+    var showForm = false;
+    TaskList.remove(selectedTask);
+    Session.set('editTaskForm', showForm);
   }
 })
 
