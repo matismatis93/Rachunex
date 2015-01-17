@@ -43,7 +43,6 @@ if (Meteor.users.find().fetch().length === 0) {
         profile: { name: userData.name }
       });
 
-      // email verification
       Meteor.users.update({_id: id}, {$set:{'emails.0.verified': true}});
 
       Roles.addUsersToRoles(id, userData.roles);

@@ -1,4 +1,3 @@
-// Tables = new Meteor.Collection('tables');
 if(Meteor.isClient){
 
 var clearValues = function(){

@@ -44,7 +44,7 @@ Template.ListaZadan.helpers({
 });
 
 Template.ListaZadan.events({
-    'dblclick .reactive-table tbody tr': function(event) {
+    'click .reactive-table tbody tr': function(event) {
     event.preventDefault();
     var taskId = this._id;
     var showForm = true;

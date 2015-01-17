@@ -34,17 +34,14 @@
 						<option>D. PIT-4</option>
 						<option>I. OT/LT</option>
 					</select>
-<!--				<input type="text" name="zZadanie" value="{{showSelectedTask.zadanie}}"> -->
 			</div>
 			<div class="flex-item">
 				<label for="zOkres">Okres</label>
 				<input type="text" name="zOkres" value="{{showSelectedTask.okres}}" class="datepicker" data-date-format="mm/yyyy">
-				<!-- <input type="text" name="zOkres" value="{{showSelectedTask.okres}}"> -->
 			</div>
 			<div class="flex-item">
 				<label for="zDataDo">Termin</label>
 				<input type="text" name="zDataDo" value="{{showSelectedTask.data_do}}" class="datepicker" data-date-format="dd/mm/yyyy">
-<!-- 				<input type="text" name="zDataDo" value="{{showSelectedTask.data_do}}"> -->
 			</div>
 			<div class="flex-item">
 				<label for="zDataZak">Zrealizowane dnia:</label>
@@ -58,7 +55,6 @@
 			          <option>Wstrzymany</option>
 			          <option>Zakończony</option>
 			      	</select>
-<!-- 				<input type="text" name="zStatus" value="{{showSelectedTask.status}}"> -->
 			</div>
 			<div class="flex-item">
 				<label for="zKomentarz">Komentarz</label>
@@ -78,6 +74,4 @@
 		{{> reactiveTable collection=zadania settings=zadaniaSettings}}
 		</div>
 	</div>
-	
-<!--{{> spinner}}-->
 </template>

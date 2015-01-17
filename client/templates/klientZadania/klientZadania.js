@@ -1,6 +1,3 @@
-// TaskList = new Mongo.Collection('zadania');
-
-
 if(Meteor.isClient) {
   
   Template.klientZadania.helpers({

@@ -50,19 +50,6 @@ Router.map(function () {
   }
   });
 
-
-    this.route('uzytkownicy', {
-  	path: '/uzytkownicy',
-  	action: function(){
-  	var user = Meteor.userId();
-	if (Roles.userIsInRole(user, ["admin"]))
-		this.render('uzytkownicy');
-	else
-		this.render('invalid-access');
-	}
-  });
-
-
     this.route('dodajKlienta', {
   	path: '/dodajklienta',
   	action: function(){

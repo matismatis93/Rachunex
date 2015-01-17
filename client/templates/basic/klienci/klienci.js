@@ -40,26 +40,14 @@ if(Meteor.isClient){
           {
             key: 'nazwa',
             label: 'Nazwa',
-            // fn: function (name, object) {
-            //   var html = '<a name="' + name +'" target="_blank" href="' + object.url + '">' + name + '</a>';
-            //   return new Spacebars.SafeString(html);
-            // }
           },
           {
             key: 'adres',
             label: 'Adres',
-            // fn: function (name, object) {
-            //   var html = '<a name="' + name +'" target="_blank" href="' + object.url + '">' + name + '</a>';
-            //   return new Spacebars.SafeString(html);
-            // }
           },
           {
             key: 'NIP',
             label: 'NIP',
-            // fn: function (name, object) {
-            //   var html = '<a name="' + name +'" target="_blank" href="' + object.url + '">' + name + '</a>';
-            //   return new Spacebars.SafeString(html);
-            // }
           },
         ]
       };

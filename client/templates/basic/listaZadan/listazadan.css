@@ -3,12 +3,13 @@
 	display: flex;
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
-	background-color: #CCFF99;
+	background-color: #DF3C3C;
+	color: black;
+    font-weight: bold;
 	width: 100%;
 }
 
 .flex-item {
-	/*margin: 5px;*/
 	margin-right: 5px;
 	margin-left: 5px;
 	margin-top: 1px;
