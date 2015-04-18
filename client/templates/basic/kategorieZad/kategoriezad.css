@@ -1,0 +1,17 @@
+.flex-container {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	background-color: #DF3C3C;
+	color: black;
+    font-weight: bold;
+	width: 100%;
+}
+
+.flex-item {
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}

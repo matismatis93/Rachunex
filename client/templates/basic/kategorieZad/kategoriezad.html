@@ -1,0 +1,37 @@
+<template name="kategorieZad">
+	<div class="container">
+		{{#if showAddForm}}
+		<form>
+		<div class="flex-container">
+			<div class="flex-item">
+				<label for="kKategoria">Kategoria</label>
+					<select class="selectpicker" name="kKategoria">
+        			  <option>Księgowania</option>
+			          <option>Deklaracje</option>
+			          <option>Pozostałe</option>
+			      	</select>
+			</div>
+			<div class="flex-item">
+				<label for="kZad">Zadanie</label>
+				<input type="text" size=20 name="kZad" value="">
+			</div>
+			<div class="flex-item">
+				<label for="kOpis">Opis</label>
+				<input type="text" size=20 name="kOpis" value="">
+			</div>
+		</div>
+		<div class="flex-container">
+			<div class="flex-item">
+			<input type="submit" value="Zapisz">
+			<input type="button" class="anuluj" value="Anuluj">
+			</div>
+		</div>
+		</form>
+		{{/if}}
+		<input type="button" class="addnew" value="Nowe zadanie">
+		<p></p>
+		<div id="table">
+		{{> reactiveTable collection=kategorie settings=kategorieSettings}}
+		</div>
+	</div>
+</template>

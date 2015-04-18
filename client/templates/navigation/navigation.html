@@ -41,6 +41,11 @@
                             <a href="{{pathFor route='dodajZadanie'}}">Dodaj Zadanie</a>
                         </li>
                         {{/if}}
+                        {{#if isInRole "admin, management"}}
+                        <li>
+                            <a href="{{pathFor route='kategorieZad'}}">Kategorie zadań</a>
+                        </li>
+                        {{/if}}
                         <li>
                             <a href="" class="logout">Wyloguj</a>
                         </li>

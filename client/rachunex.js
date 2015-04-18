@@ -9,5 +9,7 @@ Deps.autorun(function () {
   Meteor.subscribe('users');
 
   Meteor.subscribe('zadania');
+  
+  Meteor.subscribe('kategorie');
 });
 }

@@ -72,6 +72,16 @@ Router.map(function () {
   }
   });
 
+  this.route('kategorieZad', {
+    path: '/kategoriezad',
+    action: function(){
+    var user = Meteor.userId();
+  if (Roles.userIsInRole(user, ["admin", "management"]))
+    this.render('kategorieZad');
+  else
+    this.render('invalid-access');
+  }
+  });
 
   this.route('*', {
     template: 'not_found'
