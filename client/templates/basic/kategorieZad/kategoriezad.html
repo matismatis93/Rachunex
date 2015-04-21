@@ -1,29 +1,62 @@
 <template name="kategorieZad">
 	<div class="container">
 		{{#if showAddForm}}
-		<form>
+		<form class="addForm">
 		<div class="flex-container">
+			<p>Wprowadź nowy typ zadania: </p>
+			<br>
 			<div class="flex-item">
 				<label for="kKategoria">Kategoria</label>
-					<select class="selectpicker" name="kKategoria">
-        			  <option>Księgowania</option>
+					<select class="selectpicker" id="kKategoria">
+        			  <option>Ksiegowania</option>
 			          <option>Deklaracje</option>
-			          <option>Pozostałe</option>
+			          <option>Pozostale</option>
 			      	</select>
 			</div>
 			<div class="flex-item">
 				<label for="kZad">Zadanie</label>
-				<input type="text" size=20 name="kZad" value="">
+				<input type="text" size=20 id="kZad">
 			</div>
 			<div class="flex-item">
 				<label for="kOpis">Opis</label>
-				<input type="text" size=20 name="kOpis" value="">
+				<input type="text" size=20 id="kOpis">
 			</div>
 		</div>
 		<div class="flex-container">
 			<div class="flex-item">
-			<input type="submit" value="Zapisz">
+			<input type="submit" class="zapisz" value="Zapisz">
 			<input type="button" class="anuluj" value="Anuluj">
+			</div>
+		</div>
+		</form>
+		{{/if}}
+		{{#if showEditForm}}
+		<p>Edycja wybranego zadania</p>
+		<form class="editForm">
+		<div class="flex-container">
+			<div class="flex-item">
+				<label for="eKategoria">Kategoria</label>
+					<select class="selectpicker" name="eKategoria" value="{{showSelectedKat.kategoria}}">
+					<option>{{showSelectedKat.kategoria}}</option>
+        			<option>Ksiegowania</option>
+			        <option>Deklaracje</option>
+			        <option>Pozostale</option>
+			      	</select>
+			</div>
+			<div class="flex-item">
+				<label for="eZad">Zadanie</label>
+				<input type="text" size=20 name="eZad" value="{{showSelectedKat.zad}}">
+			</div>
+			<div class="flex-item">
+				<label for="eOpis">Opis</label>
+				<input type="text" class="input-xxlarge" name="eOpis" value="{{showSelectedKat.opis}}">
+			</div>
+		</div>
+		<div class="flex-container">
+			<div class="flex-item">
+			<input type="submit" class="zapisz2" value="Zapisz">
+			<input type="button" class="anuluj2" value="Anuluj zmianę">
+			<input type="button" class="usun" value="Usuń zadanie">
 			</div>
 		</div>
 		</form>

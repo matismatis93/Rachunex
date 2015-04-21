@@ -2,6 +2,7 @@ if(Meteor.isClient){
 
 var clearValues = function(){
 $('#zNazwa').val("").focus();
+$('#kKat').val("").focus();
 $('#zZadanie').val("");
 $('#zZaokres').val("");
 $('#zRealizacja').val("");
@@ -12,7 +13,11 @@ $('#zKomenatarz').val("");
 Template.dodajZadanie.helpers({
 	listaKlientow: function () {
 		return Tables.find({},{sort: {nazwa: 1}});		
-	}
+	},
+    listaZad: function () {
+        var kategoriaZadania = template.find('#zKat').value;
+        return ListaKat.find({kategoria: kategoriaZadania},{id: 0, kategorie: 0});
+    }
 });
 
 Template.dodajZadanie.rendered = function() {

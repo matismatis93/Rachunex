@@ -5,7 +5,6 @@ if(Meteor.isClient) {
   Template.kategorieZad.rendered = function() {
   this.$('.datepicker').datepicker();
   $('.selectpicker').selectpicker();
-
 }
 
 Template.kategorieZad.helpers({
@@ -30,8 +29,17 @@ Template.kategorieZad.helpers({
     showAddForm: function() {
       var showAddForm = Session.get('addKat');
       return showAddForm;
+    },
+
+    showSelectedKat: function() {
+      var selectedKat = Session.get('selectedKat');
+      return ListaKat.findOne(selectedKat);
+    },
+
+    showEditForm: function() {
+      var showEditForm = Session.get('editKatForm');
+      return showEditForm;
     }
-    
 });
 
 Template.kategorieZad.events({
@@ -47,15 +55,48 @@ Template.kategorieZad.events({
   Session.set('addKat', showAddForm);
   },
 
-'submit form': function(event, template){
+'submit .addForm': function(event){
     event.preventDefault();
-    var kategoria = template.find('#kKategoria').value;
-    var zadanie = template.find('#kZad').value;
-    var opis = template.find('#kOpis').value;
-    ListaKat.insert({klient:nazwa, zadanie:zadanie, okres:okres, status:status, data_do:data_do, komentarz:komentarz});
-    clearValues();
-}
+    var kategoriaVar = event.target.kKategoria.value;
+    var zadanieVar = event.target.kZad.value;
+    var opisVar = event.target.kOpis.value;
+    var NowaKategoria = {kategoria: kategoriaVar, zad: zadanieVar, opis: opisVar};
+    ListaKat.insert(NowaKategoria);
+    var showAddForm = false;
+    Session.set('addKat', showAddForm);
+},
 
+'dblclick .reactive-table tbody tr': function(event) {
+    event.preventDefault();
+    var katId = this._id;
+    var showEditForm = true;
+    Session.set('selectedKat', katId);
+    Session.set('editKatForm', showEditForm);
+  },
+
+  'click .anuluj2': function() {
+    var showEditForm = false;
+    Session.set('editKatForm', showEditForm);
+  },
+
+  'submit .editForm': function(event) {
+    event.preventDefault();
+    var kategoriaVar = event.target.eKategoria.value;
+    var zadanieVar = event.target.eZad.value;
+    var opisVar = event.target.eOpis.value;
+    var ZmienionaKat = {kategoria: kategoriaVar, zad: zadanieVar, opis: opisVar};
+    ListaKat.update({_id: Session.get('selectedKat')}, ZmienionaKat);
+    var showEditForm = false;
+    Session.set('editKatForm', showEditForm);
+  },
+
+  'click .usun': function(event) {
+    event.preventDefault();
+    var selectedKat = Session.get('selectedKat');
+    var showEditForm = false;
+    ListaKat.remove(selectedKat);
+    Session.set('editKatForm', showEditForm);
+  }
 })
 
 }
