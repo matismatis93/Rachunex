@@ -2,9 +2,8 @@
 	<div class="container">
 		{{#if showAddForm}}
 		<form class="addForm">
+			<p>Wprowadź nowe zadanie: </p>
 		<div class="flex-container">
-			<p>Wprowadź nowy typ zadania: </p>
-			<br>
 			<div class="flex-item">
 				<label for="kKategoria">Kategoria</label>
 					<select class="selectpicker" id="kKategoria">
@@ -19,7 +18,7 @@
 			</div>
 			<div class="flex-item">
 				<label for="kOpis">Opis</label>
-				<input type="text" size=20 id="kOpis">
+				<input type="text" class="input-xxlarge" size=20 id="kOpis">
 			</div>
 		</div>
 		<div class="flex-container">

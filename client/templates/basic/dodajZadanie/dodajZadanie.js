@@ -14,9 +14,8 @@ Template.dodajZadanie.helpers({
 	listaKlientow: function () {
 		return Tables.find({},{sort: {nazwa: 1}});		
 	},
-    listaZad: function () {
-        var kategoriaZadania = template.find('#zKat').value;
-        return ListaKat.find({kategoria: kategoriaZadania},{id: 0, kategorie: 0});
+    listaZadKat: function () {
+        return ListaKat.find({},{sort: {zad: 1}});
     }
 });
 
@@ -36,7 +35,8 @@ Template.dodajZadanie.events({
     var komentarz = template.find('#zKomenatarz').value;
     TaskList.insert({klient:nazwa, zadanie:zadanie, okres:okres, status:status, data_do:data_do, komentarz:komentarz});
     clearValues();
-}
+},
+
 });
 
 }

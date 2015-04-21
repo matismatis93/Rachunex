@@ -13,28 +13,10 @@
   </div>
   <br>
   <div class="form-group">
-        <select class="selectpicker" id="zZadanie">
-          <option>K. przedaż</option>
-          <option>K. zakup</option>
-          <option>K. kilometrówka</option>
-          <option>K. amortyzacja</option>
-          <option>K. prowizje bankowe</option>
-          <option>K. odsetki k/p</option>
-          <option>K. delegacje</option>
-          <option>K. ZUS płatnika</option>
-          <option>K. ZUS właściciela</option>
-          <option>K. lista płac</option>
-          <option>K. cyw-prawn.</option>
-          <option>D. VAT-7 mies.</option>
-          <option>D. VAT-7 kw.</option>
-          <option>D. VAT wys. elektr.</option>
-          <option>D. ZUS 10</option>
-          <option>D. ZUS 15</option>
-          <option>D. PIT-5 ZUS</option>
-          <option>D. PIT-5 mies.</option>
-          <option>D. PIT-5 kw.</option>
-          <option>D. PIT-4</option>
-          <option>I. OT/LT</option>
+    <select class="selectpicker" id="zZadanie">
+        {{#each listaZadKat}}
+          {{> opcja1}}
+        {{/each}}
       </select>
   </div>
   <br>
@@ -59,3 +41,7 @@
 <template name="opcja">
    <option>{{nazwa}}</option>
 </template>
+
+<template name="opcja1">
+  <option>{{zad}}</option>
+  </template>
