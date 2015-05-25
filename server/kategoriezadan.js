@@ -24,7 +24,7 @@ ListaKat.insert({'kategoria': 'Deklaracje', 'zad': 'D. PIT-5 ZUS', 'opis': 'uję
 ListaKat.insert({'kategoria': 'Deklaracje', 'zad': 'D. PIT-5 mies.', 'opis': 'wyliczenie miesięcznej zaliczki na podatek PIT-5'});
 ListaKat.insert({'kategoria': 'Deklaracje', 'zad': 'D. PIT-5 kw.', 'opis': 'wyliczenie kwartalnej zaliczki na podatek PIT-5'});
 ListaKat.insert({'kategoria': 'Deklaracje', 'zad': 'D. PIT-4', 'opis': 'wyliczenie miesięcznej zaliczki na podatek PIT-4'});
-ListaKat.insert({'kategoria': 'Pozostale', 'zad': 'I. OT/LT', 'opis': 'ewidencja zakupu/likwidacji środka trwałego'});
+ListaKat.insert({'kategoria': 'Pozostale', 'zad': 'P. OT/LT', 'opis': 'ewidencja zakupu/likwidacji środka trwałego'});
 
     
   });

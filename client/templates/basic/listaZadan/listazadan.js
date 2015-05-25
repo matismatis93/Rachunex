@@ -39,7 +39,11 @@ Template.ListaZadan.helpers({
     showForm: function() {
       var showForm = Session.get('editTaskForm');
       return showForm;
-    }
+    },
+
+    listaZadKat: function () {
+        return ListaKat.find({}, {sort: {zad: 1}});
+    },
     
 });
 
