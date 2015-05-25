@@ -42,8 +42,8 @@ Template.ListaZadan.helpers({
     },
 
     listaZadKat: function () {
-        return ListaKat.find({}, {sort: {zad: 1}});
-    },
+        return ListaKat.find({},{sort: {zad: 1}});
+    }
     
 });
 
@@ -65,9 +65,18 @@ Template.ListaZadan.events({
     var taskStatusVar = event.target.zStatus.value;
     var taskKomentarzVar = event.target.zKomentarz.value;
     var noweDaneZadania = {klient: taskKlientVar, zadanie: taskZadanieVar, okres: taskOkresVar, data_do: taskDataDoVar, data_zak: taskDataZakVar, status: taskStatusVar, komentarz: taskKomentarzVar};
-    TaskList.update({_id: Session.get('selectedTask')}, noweDaneZadania);
+
+    if(taskStatusVar === "Zakończony")
+    {
+    ArchList.insert(noweDaneZadania);
+    var selectedTask = Session.get('selectedTask');
     var showForm = false;
+    TaskList.remove(selectedTask);
     Session.set('editTaskForm', showForm);
+    }else{
+    TaskList.update({_id: Session.get('selectedTask')}, noweDaneZadania);
+    Session.set('editTaskForm', showForm);
+    }
   },
   'click .anuluj': function() {
     var showForm = false;

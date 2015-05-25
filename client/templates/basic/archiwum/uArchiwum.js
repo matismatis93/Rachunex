@@ -1,14 +1,14 @@
 if(Meteor.isClient) {
   
-  Template.klientZadania.helpers({
-      tables : function () {
+  Template.uArchiwum.helpers({
+      archiwum : function () {
         var user = Meteor.user();
         var name = user.profile.name;
 
-          return TaskList.find({klient: name});
+          return ArchList.find({klient: name, status: "Zakończony"});
 
 },
-  kZadaniaSettings : function () {
+  uArchiwum : function () {
       return {
         rowsPerPage: 7,
         showNavigation: 'auto',

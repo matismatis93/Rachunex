@@ -83,6 +83,28 @@ Router.map(function () {
   }
   });
 
+  this.route('mArchiwum', {
+    path: '/march',
+    action: function(){
+    var user = Meteor.userId();
+  if (Roles.userIsInRole(user, ["admin","management"]))
+    this.render('mArchiwum');
+  else
+    this.render('invalid-access');
+  }
+  });
+
+    this.route('uArchiwum', {
+    path: '/uarch',
+    action: function(){
+    var user = Meteor.userId();
+  if (Roles.userIsInRole(user, ["user"]))
+    this.render('uArchiwum');
+  else
+    this.render('invalid-access');
+  }
+  });
+
   this.route('*', {
     template: 'not_found'
   });

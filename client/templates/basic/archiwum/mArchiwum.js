@@ -1,14 +1,13 @@
+ArchList = new Mongo.Collection('archiwum');
+
 if(Meteor.isClient) {
   
-  Template.klientZadania.helpers({
-      tables : function () {
-        var user = Meteor.user();
-        var name = user.profile.name;
-
-          return TaskList.find({klient: name});
+  Template.mArchiwum.helpers({
+      archiwum : function () {
+          return ArchList.find({status: "Zakończony"});
 
 },
-  kZadaniaSettings : function () {
+  mArchiwum : function () {
       return {
         rowsPerPage: 7,
         showNavigation: 'auto',

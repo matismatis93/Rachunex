@@ -46,6 +46,16 @@
                             <a href="{{pathFor route='kategorieZad'}}">Kategorie zadań</a>
                         </li>
                         {{/if}}
+                        {{#if isInRole "admin, management"}}
+                        <li>
+                            <a href="{{pathFor route='mArchiwum'}}">Archiwum</a>
+                        </li>
+                        {{/if}}
+                        {{#if isInRole "user"}}
+                        <li>
+                            <a href="{{pathFor route='uArchiwum'}}">Archiwum</a>
+                        </li>
+                        {{/if}}
                         <li>
                             <a href="" class="logout">Wyloguj</a>
                         </li>
